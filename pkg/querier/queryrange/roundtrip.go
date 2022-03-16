@@ -431,7 +431,6 @@ func NewMetricTripperware(
 
 	if cfg.ShardedQueries {
 		queryRangeMiddleware = append(queryRangeMiddleware,
-			SplitByRangeMiddleware(log, limits, nil),
 			NewQueryShardMiddleware(
 				log,
 				schema.Configs,
@@ -478,6 +477,7 @@ func NewInstantMetricTripperware(
 
 	if cfg.ShardedQueries {
 		queryRangeMiddleware = append(queryRangeMiddleware,
+			SplitByRangeMiddleware(log, limits, nil),
 			NewQueryShardMiddleware(
 				log,
 				schema.Configs,
